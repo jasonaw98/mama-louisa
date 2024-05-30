@@ -1,59 +1,36 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
+import PopoverAlt from "./PopoverAlt";
+import { DialogHeader } from "./ui/dialog";
+import { items } from "@/data";
+import { TextAnimate } from "./ui/text-animate";
 
 export function ShowCase() {
   return (
-    <BentoGrid className="max-w-7xl mx-auto mt-8">
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-        />
-      ))}
-    </BentoGrid>
+    <div className="flex flex-col mt-8 w-full">
+      <TextAnimate text="Featured Products" type="popIn" className="font-sans font-bold text-neutral-600 tracking-wider dark:text-neutral-200 text-[50px] flex w-full justify-center pb-4"/>
+      <BentoGrid className="max-w-7xl mx-auto mt-8">
+        {items.map((item, i) => (
+          <PopoverAlt
+            key={i}
+            trigger={
+              <BentoGridItem
+                key={i}
+                title={item.title}
+                description={item.description}
+                header={item.header}
+              />
+            }>
+            <div className="bg-white">
+              <div className="flex flex-col items-center">
+                <img src={item.header} alt="img" className="object-center object-cover max-h-[25rem] rounded-xl w-full" />
+              </div>
+              <p className="font-sans text-neutral-600 text-[20px] font-bold pt-4">{item.title}</p>
+            </div>
+          </PopoverAlt>
+        ))}
+      </BentoGrid>
+    </div>
   );
 }
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[12rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-);
-const items = [
-  {
-    title: "Signature Noodles with Chicken Chop",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
-    header: '/mama/crispy_chicken_noodle.jpg',
-  },
-  {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
-    header:'/mama/hot_sour.jpg',
-  },
-  {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
-    header: '/mama/hot_sour.jpg',
-  },
-  {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: '/mama/hot_sour.jpg',
-  },
-  {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
-    header: '/mama/hot_sour.jpg',
-  },
-  {
-    title: "The Joy of Creation",
-    description: "Experience the thrill of bringing ideas to life.",
-    header: '/mama/hot_sour.jpg',
-  },
-  {
-    title: "The Spirit of Adventure",
-    description: "Embark on exciting journeys and thrilling discoveries.",
-    header: '/mama/hot_sour.jpg',
-  },
-];

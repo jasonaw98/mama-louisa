@@ -6,13 +6,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ShowCase } from "./ShowCase";
 
 const Popover = () => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger><ShowCase></ShowCase></DialogTrigger>
+        <DialogTrigger>open</DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Are you absolutely sure?</DialogTitle>
