@@ -9,7 +9,7 @@ import { TextAnimate } from "./ui/text-animate";
 export function ShowCase() {
   return (
     <div className="flex flex-col mt-8 w-full">
-      <TextAnimate text="Signature Dishes" type="popIn" className="font-sans font-bold text-neutral-600 dark:text-neutral-200 text-[50px] flex w-full justify-center pb-4"/>
+      <TextAnimate text="Featured Products" type="popIn" className="font-sans font-bold text-neutral-600 tracking-wider dark:text-neutral-200 text-[50px] flex w-full justify-center pb-4"/>
       <BentoGrid className="max-w-7xl mx-auto mt-8">
         {items.map((item, i) => (
           <PopoverAlt
